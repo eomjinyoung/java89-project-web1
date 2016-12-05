@@ -1,4 +1,37 @@
 # 자바 웹 프로젝트
+## v0.2 : 웹 프로젝트 준비
+#### 의존 라이브러리 준비
+- libs 폴더 생성
+- libs/mysql***.jar : MySQL JDBC 드라이버 파일 추가
+
+#### Gradle 설정 파일에 의존 라이브러리 정보 추가
+- 로컬 의존 라이브러리 추가 : libs 폴더에 있는 .jar 파일 추가 
+- gradle eclipse 명령을 다시 실행한다 : 이클립스 설정 파일을 갱신한다.
+- 이클립스에서 프로젝트를 "refresh" 한다.
+
+#### 자바 패키지 구조
+src/main/java/bitcamp/java89/ems/controller
+                                /dao
+                                /vo
+                                
+#### 기존 프로젝트 소스 파일을 복사해 온다.
+~~~~
+util
+  DataSource.java
+vo
+  Contact.java
+  Student.java  
+dao
+  ContactDao.java
+  StudentDao.java
+  impl 패키지 
+    ContactMysqlDao.java
+    StudentMysqlDao.java
+controller
+  ContactController.java
+  StudentController.java     
+~~~~
+
 ## v0.1 : 프로젝트 만들기
 #### 프로젝트 폴더 구조
 bitcamp-web/src/main/java       : 자바 소스 파일

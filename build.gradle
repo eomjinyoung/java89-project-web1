@@ -7,4 +7,17 @@ apply plugin: 'war'         // 웹 애플리케이션 배포 관련 플러그인
 // 소스 폴더의 구조를 따로 명시할 필요가 없다.
 //sourceSets {}
 
+repositories {
+  mavenCentral()  
+}
+
+dependencies {
+  // 로컬에서 의존 라이브러리 가져오기
+  compile fileTree(dir:'libs', include: '*.jar')
+}
+
+
+
+
+
 

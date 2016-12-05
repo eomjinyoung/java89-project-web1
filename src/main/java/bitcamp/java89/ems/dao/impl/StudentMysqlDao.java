@@ -12,6 +12,21 @@ import bitcamp.java89.ems.vo.Student;
 public class StudentMysqlDao implements StudentDao {
   DataSource ds;
   
+  //Singleton 패턴 - start
+  private StudentMysqlDao() {
+    ds = DataSource.getInstance();
+  }
+ 
+  static StudentMysqlDao instance;
+ 
+  public static StudentMysqlDao getInstance() {
+    if (instance == null) {
+      instance = new StudentMysqlDao();
+    }
+    return instance;
+  }
+  // end - Singleton 패턴
+ 
   public ArrayList<Student> getList() throws Exception {
     ArrayList<Student> list = new ArrayList<>();
     Connection con = ds.getConnection(); // 커넥션풀에서 한 개의 Connection 객체를 임대한다.

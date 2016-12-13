@@ -1,4 +1,11 @@
 # 자바 웹 프로젝트
+
+## v0.3 : HttpServlet 클래스 적용
+#### 서블릿 클래스 변경
+- AbstractServlet 클래스 제거
+- AbstractServlet 대신 HttpServlet 상속 받는다.
+- service() 메서드를 오버라이딩하기 보다는 doGet(), doPost()를 오버라이딩 한다.
+
 ## v0.2 : 웹 프로젝트 준비
 #### 의존 라이브러리 준비
 - libs 폴더 생성

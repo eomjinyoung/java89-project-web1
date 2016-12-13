@@ -1,5 +1,12 @@
 # 자바 웹 프로젝트
 
+## v0.4 : HTML 적용
+#### 서블릿 클래스 변경
+- 출력 콘텐츠를 plain에서 html로 변경한다.
+- ContactListServlet.java (변경)
+- webapp/student/form.html (생성)
+
+
 ## v0.3 : HttpServlet 클래스 적용
 #### 서블릿 클래스 변경
 - AbstractServlet 클래스 제거

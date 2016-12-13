@@ -18,24 +18,38 @@ public class StudentDeleteServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+    
+    String userId = request.getParameter("userId");
+    
+    response.setHeader("Refresh", "1;url=list");
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head>");
+    out.println("<meta charset='UTF-8'>");
+    out.println("<title>학생관리-삭제</title>");
+    out.println("</head>");
+    out.println("<body>");
+    out.println("<h1>삭제 결과</h1>");
+
     try {
       StudentMysqlDao studentDao = StudentMysqlDao.getInstance();
     
-      // 웹브라우저 쪽으로 출력할 수 있도록 출력 스트림 객체를 얻는다.
-      response.setContentType("text/plain;charset=UTF-8");
-      PrintWriter out = response.getWriter();
-      
-      if (!studentDao.existUserId(request.getParameter("userId"))) {
-        out.println("해당 아이디의 학생이 없습니다.");
-        return;
+      if (!studentDao.existUserId(userId)) {
+        throw new Exception("사용자를 찾지 못했습니다.");
       }
       
-      studentDao.delete(request.getParameter("userId"));
-      out.printf("%s 학생 정보를 삭제하였습니다.\n", request.getParameter("userId"));
+      studentDao.delete(userId);
+      out.println("<p>삭제하였습니다.</p>");
       
     } catch (Exception e) {
-      throw new ServletException(e);
+      out.printf("<p>%s</p>\n", e.getMessage());
     }
+    
+    out.println("</body>");
+    out.println("</html>");
     
   }
 }

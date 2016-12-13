@@ -11,12 +11,17 @@
 #### 서블릿 클래스 변경
 - 출력 콘텐츠를 plain에서 html로 변경한다.
 - ContactListServlet.java (변경)
-- webapp/student/form.html (생성)
+- webapp/contact/form.html (생성)
 - ContactAddServlet.java (변경)
 - ContactViewServlet.java (변경)
 - ContactUpdateServlet.java (변경)
 - ContactDeleteServlet.java (변경)
-
+- StudentListServlet.java (변경)
+- webapp/student/form.html (생성)
+- StudentAddServlet.java (변경)
+- StudentViewServlet.java (변경)
+- StudentUpdateServlet.java (변경)
+- StudentDeleteServlet.java (변경)
 
 ## v0.3 : HttpServlet 클래스 적용
 #### 학습목표

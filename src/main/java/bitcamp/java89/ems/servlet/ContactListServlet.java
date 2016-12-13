@@ -20,22 +20,23 @@ public class ContactListServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head>");
+    out.println("<meta charset='UTF-8'>");
+    out.println("<title>연락처관리-목록</title>");
+    out.println("</head>");
+    out.println("<body>");
+    out.println("<h1>연락처 정보</h1>");
+
     try {
       ContactMysqlDao contactDao = ContactMysqlDao.getInstance();
       ArrayList<Contact> list = contactDao.getList();
     
-      // 웹브라우저 쪽으로 출력할 수 있도록 출력 스트림 객체를 얻는다.
-      response.setContentType("text/html;charset=UTF-8");
-      PrintWriter out = response.getWriter();
-      
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<meta charset='UTF-8'>");
-      out.println("<title>연락처관리-목록</title>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<h1>연락처 정보</h1>");
       out.println("<a href='form.html'>추가</a><br>");
       out.println("<table border='1'>");
       out.println("<tr>");
@@ -53,13 +54,13 @@ public class ContactListServlet extends HttpServlet {
       }
       
       out.println("</table>");
-      out.println("</body>");
-      out.println("</html>");
       
     } catch (Exception e) {
-      throw new ServletException(e);
+      out.printf("<p>%s</p>\n", e.getMessage());
     }
     
+    out.println("</body>");
+    out.println("</html>");
   }
 }
 
